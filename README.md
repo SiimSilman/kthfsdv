@@ -70,21 +70,3 @@ $$\lambda(t) = 5 \cdot \sin(2\pi \cdot 1 \cdot t)$$
 
 * **Periodicity:** $\lambda(t)$ has a fundamental period of $T = 1.0\text{ s}$.
 * **Dynamic Range:** Due to the exponential term $e^{-\lambda(t)}$, $h(t)$ oscillates rapidly between $3\pi \cdot e^{-5} \approx 0.063$ and $3\pi \cdot e^{5} \approx 1398.8$.
-
----
-
-## Architecture & OOP Design
-
-The script uses class inheritance to separate data generation/math logic from the Graphical User Interface (GUI):
-
-```text
-       ┌──────────────────┐
-       │   BasePlotter    │  <-- Parent Class (Math & Data)
-       └────────┬─────────┘
-                │
-                ▼
-   ┌──────────────────────────┐
-   │    InteractivePlotter    │  <-- Child Class (GUI & Rendering)
-   └──────────────────────────┘
-
-        
