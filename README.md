@@ -1,20 +1,50 @@
-# kthfsdv
-## KTH Formula: Driverless recruitment exercises
-### excercise 1
-Created files nodeA and nodeB to communicate with each other.
+# KTH Formula Student: Driverless Recruitment Exercises
 
-Task: 
-nodeA counts k+=n and publishes it with /silman topic at 20Hz (k_0=4, n=4)
-nodeB subscribes to /silman topic and divides received message k/q (q=0.15)
-nodeB logs the received message and the new value
-setup.py connects the python script with the terminal in ROS2
+Repository containing the recruitment assignments for the **KTH Formula Student (Driverless)** team, covering ROS 2 communication nodes, data processing, and visualization tools.
 
-Objective: Learn the basic structure of ROS2 Jazzy, rclpy and plotjuggler.
+---
 
-Setup:  Run docker setup to get ROS2 environment
-        Within /src/exc1/packageX create python packageX
-        Load nodeX.py within /src/exc1/packageX/packageX
-        Load setup.py within /src/exc1/packageX
-        (X = [A, B])
+## Exercise 1: ROS 2 Communication & PlotJuggler
+
+### Overview
+Implementation of two interacting ROS 2 nodes using `rclpy` to demonstrate topic-based publisher-subscriber architecture, message handling, and real-time data visualization.
+
+### Objective
+* Learn the fundamental structure of **ROS 2 (Jazzy)** and `rclpy`.
+* Implement object-oriented ROS 2 nodes with timers and subscription callbacks.
+* Configure ROS 2 package entry points in `setup.py`.
+* Monitor and plot live network traffic using **PlotJuggler**.
+
+---
+
+### Node Specifications
+
+* **`nodeA` (`package1`)**
+  * **Role:** Publisher
+  * **Topic:** `/silman` (`std_msgs/msg/Int64`)
+  * **Rate:** $20\text{ Hz}$
+  * **Behavior:** Increments a counter $k_{m+1} = k_m + n$ where $k_0 = 4$ and $n = 4$.
+
+* **`nodeB` (`package2`)**
+  * **Role:** Subscriber & Publisher
+  * **Subscribed Topic:** `/silman`
+  * **Published Topic:** `/kthfs/result` (`std_msgs/msg/Float64`)
+  * **Behavior:** Receives $k$, computes $r = k / q$ where $q = 0.15$, logs the result, and re-publishes $r$.
+
+---
+
+### Workspace Structure
+
+```text
+kthfsdv/
+└── src/
+    ├── package1/
+    │   ├── package1/
+    │   │   └── nodeA.py
+    │   └── setup.py
+    └── package2/
+        ├── package2/
+        │   └── nodeB.py
+        └── setup.py
         
         
