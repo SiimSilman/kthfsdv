@@ -46,5 +46,45 @@ kthfsdv/
         ├── package2/
         │   └── nodeB.py
         └── setup.py
-        
+```
+
+## Exercise 2: Data visualization
+
+### Overview
+Computation of functions are interactive visual plotter using math plot library (matplotlib)
+# Object-Oriented Mathematical Function Plotter
+
+A Python-based standalone visualization tool that calculates and plots complex periodic functions in real time. Built with an Object-Oriented Programming (OOP) approach using `numpy` and `matplotlib`.
+
+---
+
+## Mathematical Model
+
+The tool visualizes the periodic function $h(t)$:
+
+$$h(t) = 3\pi \cdot e^{-\lambda(t)}$$
+
+where $\lambda(t)$ is defined as:
+
+$$\lambda(t) = 5 \cdot \sin(2\pi \cdot 1 \cdot t)$$
+
+* **Periodicity:** $\lambda(t)$ has a fundamental period of $T = 1.0\text{ s}$.
+* **Dynamic Range:** Due to the exponential term $e^{-\lambda(t)}$, $h(t)$ oscillates rapidly between $3\pi \cdot e^{-5} \approx 0.063$ and $3\pi \cdot e^{5} \approx 1398.8$.
+
+---
+
+## Architecture & OOP Design
+
+The script uses class inheritance to separate data generation/math logic from the Graphical User Interface (GUI):
+
+```text
+       ┌──────────────────┐
+       │   BasePlotter    │  <-- Parent Class (Math & Data)
+       └────────┬─────────┘
+                │
+                ▼
+   ┌──────────────────────────┐
+   │    InteractivePlotter    │  <-- Child Class (GUI & Rendering)
+   └──────────────────────────┘
+
         
