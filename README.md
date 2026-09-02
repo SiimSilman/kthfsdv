@@ -2,6 +2,8 @@
 
 Repository containing the recruitment assignments for the **KTH Formula Student (Driverless)** team, covering ROS 2 communication nodes, data processing, and visualization tools.
 
+Obs! Generative AI (Gemini) was used to setup docker, to understand certain topics that were unclear in the ROS2 Documentation and to vibe-code exercise 2.
+
 ---
 
 ## Exercise 1: ROS 2 Communication & PlotJuggler
